@@ -1,0 +1,4 @@
+cmake-build-debug/
+CMakeLists.txt
+net.binaryhell.libcorocore.test/*.o
+net.binaryhell.libcorocore.test/test
