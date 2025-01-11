@@ -48,6 +48,7 @@ void cc_coroutine_destroy( cc_coroutine_t* self );
 
 void cc_coroutine_entry_point( void );
 void cc_coroutine_yield( void );
+void cc_coroutine_return( void );
 void cc_coroutine_call( cc_coroutine_t* coroutine );
 void cc_coroutine_invoke( cc_thread_t* target_thread, cc_functor__fptr method, void* args );
 void cc_coroutine_transfer( cc_thread_t* target_thread );

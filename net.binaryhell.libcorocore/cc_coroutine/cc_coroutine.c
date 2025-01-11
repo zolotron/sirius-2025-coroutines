@@ -136,14 +136,16 @@ void cc_coroutine_destroy( cc_coroutine_t* self ) {
 }
 
 void cc_coroutine_entry_point( void ) {
-    //cc_log_info("CORO-1");
     thread->coroutine->params.main( thread->coroutine->params.args );
-    //cc_log_info("CORO-2");
-    thread->coroutine->state = CC_COROUTINE_STATE_ACTIVE_RETURN;
-    cc_context_switch( thread->coroutine->context, &thread->scheduler->context );
+    cc_coroutine_return();
 }
 
 void cc_coroutine_yield( void ) {
+    cc_context_switch( thread->coroutine->context, &thread->scheduler->context );
+}
+
+void cc_coroutine_return( void ) {
+    thread->coroutine->state = CC_COROUTINE_STATE_ACTIVE_RETURN;
     cc_context_switch( thread->coroutine->context, &thread->scheduler->context );
 }
 
